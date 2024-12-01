@@ -51,7 +51,7 @@ const NewUserPage = () => {
   };
 
   return (
-    <S.Container>
+    <S.Container data-testid="newUser-page">
       <S.Card>
         <IconButton onClick={goToHome} aria-label="back">
           <HiOutlineArrowLeft size={24} />
