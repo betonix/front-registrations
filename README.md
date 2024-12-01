@@ -4,6 +4,8 @@ Este é o repositório da **Plataforma de Admissão**, uma aplicação web para 
 
 Abaixo está um exemplo da interface da tela de Dashboard:
 
+- Link preview do deploy no firebase -> https://front-registrations.web.app/
+
 ![Demonstração do Dashboard](./files/ezgif-2-6c06407bc6.gif)
 
 ## Funcionalidades
