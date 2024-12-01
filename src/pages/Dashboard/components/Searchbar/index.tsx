@@ -1,0 +1,72 @@
+import { HiRefresh } from "react-icons/hi";
+import { useHistory } from "react-router-dom";
+import { useForm, Controller } from "react-hook-form";
+import Button from "~/components/Buttons";
+import { IconButton } from "~/components/Buttons/IconButton";
+import TextField from "~/components/TextField/TextField";
+import routes from "~/router/routes";
+import * as S from "./styles";
+import { isValidCPF } from "~/utils/validations/validations";
+
+export const SearchBar = ({
+  onSearch,
+  onRefresh,
+}: {
+  onSearch: (cpf: string) => void;
+  onRefresh: () => void;
+}) => {
+  const history = useHistory();
+
+  const { control, handleSubmit } = useForm<{ cpf: string }>({
+    defaultValues: { cpf: "" },
+  });
+
+  const goToNewAdmissionPage = () => {
+    history.push(routes.newUser);
+  };
+
+  const onSubmit = (data: { cpf: string }) => {
+    const cleanCpf = data.cpf.replace(/\D/g, "");
+    onSearch(cleanCpf);
+  };
+
+  return (
+    <S.Container>
+      <S.Form onSubmit={handleSubmit(onSubmit)}>
+        <S.ContainerInput>
+          <Controller
+            name="cpf"
+            control={control}
+            rules={{
+              required: "CPF é obrigatório",
+              validate: (value) => isValidCPF(value) || "CPF inválido",
+            }}
+            render={({ field, fieldState: { error } }) => (
+              <TextField
+                {...field}
+                label="CPF"
+                placeholder="Digite um CPF válido"
+                mask="999.999.999-99"
+                error={error?.message}
+              />
+            )}
+          />
+          <S.ContainerButton>
+            <Button type="submit">Buscar</Button>
+          </S.ContainerButton>
+        </S.ContainerInput>
+        <S.Actions>
+          <IconButton
+            aria-label="refetch"
+            onClick={() => {
+              onRefresh();
+            }}
+          >
+            <HiRefresh />
+          </IconButton>
+          <Button onClick={goToNewAdmissionPage}>Nova Admissão</Button>
+        </S.Actions>
+      </S.Form>
+    </S.Container>
+  );
+};
