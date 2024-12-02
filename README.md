@@ -8,6 +8,14 @@ Abaixo está um exemplo da interface da tela de Dashboard:
 
 ![Demonstração do Dashboard](./files/ezgif-2-6c06407bc6.gif)
 
+## Integração com Github Actions
+
+# 3 Jobs foram integrados no repositório
+
+- Deploy no firebase hosting para cada merge no branch main
+- Deploy no firebase hosting para cada PR aberto para branch main, disponibilizando uma url preview.
+- Pipe para rodar os testes End-to-End (E2E) para merge e PR na main.
+
 ## Funcionalidades
 
 ### Tela Dashboard
