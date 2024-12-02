@@ -10,7 +10,7 @@ Abaixo está um exemplo da interface da tela de Dashboard:
 
 ## Integração com Github Actions
 
-# 3 Jobs foram integrados no repositório
+# 3 workflows foram integrados no repositório
 
 - Deploy no firebase hosting para cada merge no branch main
 - Deploy no firebase hosting para cada PR aberto para branch main, disponibilizando uma url preview.
