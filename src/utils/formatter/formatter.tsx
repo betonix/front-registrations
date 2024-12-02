@@ -15,3 +15,7 @@ export const separateByStatus = (data: Registration[]): SeparatedData => {
     { APPROVED: [], REPROVED: [], REVIEW: [] }
   );
 };
+
+export const removeMaskCPFInput = (input: string): string => {
+  return input.replace(/[.\-_]/g, "");
+};

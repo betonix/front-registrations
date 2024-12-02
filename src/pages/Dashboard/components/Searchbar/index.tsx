@@ -7,6 +7,7 @@ import TextField from "~/components/TextField/TextField";
 import routes from "~/router/routes";
 import * as S from "./styles";
 import { isValidCPF } from "~/utils/validations/validations";
+import { removeMaskCPFInput } from "~/utils/formatter/formatter";
 
 export const SearchBar = ({
   onSearch,
@@ -17,7 +18,7 @@ export const SearchBar = ({
 }) => {
   const history = useHistory();
 
-  const { control, handleSubmit } = useForm<{ cpf: string }>({
+  const { control } = useForm<{ cpf: string }>({
     defaultValues: { cpf: "" },
   });
 
@@ -32,7 +33,7 @@ export const SearchBar = ({
 
   return (
     <S.Container>
-      <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <S.Form>
         <S.ContainerInput>
           <Controller
             name="cpf"
@@ -48,12 +49,19 @@ export const SearchBar = ({
                 placeholder="Digite um CPF válido"
                 mask="999.999.999-99"
                 error={error?.message}
+                onChange={(e) => {
+                  field.onChange(e);
+                  const value = e.target.value;
+                  if (isValidCPF(value)) {
+                    onSubmit({ cpf: value });
+                  }
+                  if (removeMaskCPFInput(value) == "") {
+                    onSearch("");
+                  }
+                }}
               />
             )}
           />
-          <S.ContainerButton>
-            <Button type="submit">Buscar</Button>
-          </S.ContainerButton>
         </S.ContainerInput>
         <S.Actions>
           <IconButton
