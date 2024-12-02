@@ -1,48 +1,44 @@
-name: Run E2E Tests with Playwright
+name: E2E Tests
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: yarn
 
       - name: Install dependencies
         run: yarn install
 
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
       - name: Start JSON Server
         run: yarn init:db &
         env:
-          PORT: 3001
-
-      - name: Start application
-        run: yarn dev &
-        env:
           PORT: 3000
 
-      - name: Wait for the application to be ready
-        run: npx wait-on http://localhost:3000 http://localhost:3001
+      - name: Start Vite Development Server
+        run: yarn dev --port 3001 &
+        env:
+          PORT: 3001
 
-      - name: Run E2E Tests
+      - name: Wait for servers to start
+        run: |
+          echo "Waiting for servers to start..."
+          sleep 10
+
+      - name: Run Playwright Tests
         run: yarn playwright test
-
-      - name: Upload Playwright report
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report
-          path: playwright-report/
