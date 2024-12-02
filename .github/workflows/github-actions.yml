@@ -28,12 +28,12 @@ jobs:
       - name: Start JSON Server
         run: yarn init:db &
         env:
-          PORT: 3000
+          PORT: 3001
 
       - name: Start Vite Development Server
-        run: yarn dev --port 3001 &
+        run: yarn dev --port 3000 &
         env:
-          PORT: 3001
+          PORT: 3000
 
       - name: Wait for servers to start
         run: |
