@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
-    "test:dev": "jest --watch --verbose --no-cache",
+    "test:dev": "jest --watchAll --verbose --no-cache",
+    "test:ci": "jest --watch=false",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test:e2e": "playwright test",
