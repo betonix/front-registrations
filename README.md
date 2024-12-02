@@ -16,6 +16,8 @@ Abaixo está um exemplo da interface da tela de Dashboard:
 - Deploy no firebase hosting para cada PR aberto para branch main, disponibilizando uma url preview.
 - Pipe para rodar os testes End-to-End (E2E) para merge e PR na main.
 
+![Jobs no github actions](./files/e2e.png)
+
 ## Funcionalidades
 
 ### Tela Dashboard
