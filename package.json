@@ -11,7 +11,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "init:db": "json-server --watch db.json --port 3001",
-    "dev": "vite",
+    "dev": "vite --port 3001",
     "e2e": "yarn playwright test",
     "test": "jest"
   },
