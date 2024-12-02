@@ -83,11 +83,49 @@ URLs Disponíveis
     •	Aplicação: http://localhost:3001
     •	Servidor JSON: http://localhost:3000
 
-Rodar Testes
+Rodar Testes Unitários e Integração
 
 ```bash
 yarn test:dev
 ```
+
+# Rodar Testes End-to-End (E2E)
+
+Para rodar os testes End-to-End (E2E) localmente será necessário levantar tanto o o json-server com o comando:
+
+```bash
+yarn init:db
+```
+
+seguido do comando para levantar a aplicação:
+
+```bash
+yarn dev
+```
+
+e por fim para rodar o teste e2e existem duas maneiras:
+
+A primeiro rodando os testes internamente sem visualizar a ui da aplicação
+
+```bash
+yarn test:e2e
+```
+
+![Imagem e2e](./files/e2e-no-ui.png)
+
+e a segunda opção vendo a ui e tendo acesso a ferramentas de debug:
+
+```bash
+yarn test:e2e:ui
+```
+
+![Imagem e2e](./files/ui-e2e.png)
+
+# Testes unitários
+
+Mais 80% de coverage
+
+![Imagem e2e](./files/coverage.png)
 
 Tecnologias Utilizadas
 

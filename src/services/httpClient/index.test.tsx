@@ -17,7 +17,7 @@ describe("httpClient", () => {
   });
 
   it("should have the correct base URL", () => {
-    expect(httpClient.defaults.baseURL).toBe("http://localhost:3000/");
+    expect(httpClient.defaults.baseURL).toBe("http://localhost:3001/");
   });
 
   it("should have the correct timeout", () => {
@@ -38,7 +38,7 @@ describe("httpClient", () => {
 
     expect(response).toEqual({
       config: expect.objectContaining({
-        baseURL: "http://localhost:3000/",
+        baseURL: "http://localhost:3001/",
         data: undefined,
         headers: expect.objectContaining({
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ describe("httpClient", () => {
 
     expect(response).toEqual({
       config: expect.objectContaining({
-        baseURL: "http://localhost:3000/",
+        baseURL: "http://localhost:3001/",
         data: JSON.stringify(mockRequestData),
         headers: expect.objectContaining({
           "Content-Type": "application/json",
