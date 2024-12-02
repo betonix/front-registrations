@@ -31,6 +31,6 @@ export const isValidEmail = (email: string): boolean => {
 };
 
 export const isValidEmployeeName = (name: string): boolean => {
-  const nameRegex = /^[^\d][a-zA-Z\s]+$/;
+  const nameRegex = /^[^\d][\p{L}\s]+$/u;
   return nameRegex.test(name) && name.trim().split(" ").length >= 2;
 };

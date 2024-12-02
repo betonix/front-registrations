@@ -31,6 +31,14 @@
       "cpf": "09680316416",
       "admissionDate": "1992-12-17",
       "status": "REVIEW"
+    },
+    {
+      "id": "d7d9",
+      "employeeName": "Roberto Oliveira",
+      "email": "roberto.o.s.f@caju.com",
+      "cpf": "09680316416",
+      "admissionDate": "1992-12-17",
+      "status": "REPROVED"
     }
   ]
 }
