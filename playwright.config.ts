@@ -8,7 +8,7 @@ export default defineConfig({
   },
   retries: 1,
   use: {
-    baseURL: "http://localhost:3001",
+    baseURL: "http://localhost:3000",
     headless: true,
     video: "retain-on-failure",
     screenshot: "only-on-failure",
