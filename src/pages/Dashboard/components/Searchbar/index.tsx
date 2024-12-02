@@ -18,7 +18,7 @@ export const SearchBar = ({
 }) => {
   const history = useHistory();
 
-  const { control } = useForm<{ cpf: string }>({
+  const { control, handleSubmit } = useForm<{ cpf: string }>({
     defaultValues: { cpf: "" },
   });
 
@@ -33,7 +33,7 @@ export const SearchBar = ({
 
   return (
     <S.Container>
-      <S.Form>
+      <S.Form onSubmit={handleSubmit(onSubmit)}>
         <S.ContainerInput>
           <Controller
             name="cpf"
