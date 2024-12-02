@@ -20,6 +20,7 @@ export const SearchBar = ({
 
   const { control, handleSubmit } = useForm<{ cpf: string }>({
     defaultValues: { cpf: "" },
+    mode: "onChange",
   });
 
   const goToNewAdmissionPage = () => {
